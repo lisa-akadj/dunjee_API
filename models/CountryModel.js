@@ -52,6 +52,17 @@ class Country {
             throw 'Country not found'
         }
     }
+
+    destroy () {
+        const deletedCountry = countries.find(country => country.name.toLowerCase() == this.name.toLowerCase())
+
+        if (deletedCountry) {
+            const index = countries.indexOf(deletedCountry)
+            countries.splice(index, 1)
+        } else {
+            throw 'Country not found'
+        }
+    }
 }
 
 

@@ -41,8 +41,17 @@ const update = async (req, res) => {
     }
 }
 
+const destroy = async (req, res) => {
+    const name = req.params.name.toLowerCase()
+
+    try {
+        const country = await Country.show(name)
+        await country.destroy()
+        res.sendStatus(204)
+    } catch (err) {
+        res.status(404).send({error: err})
+    }
+}
 
 
-
-
-module.exports = {index, show, create, update}
+module.exports = {index, show, create, update, destroy}
