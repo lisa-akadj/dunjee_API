@@ -10,6 +10,16 @@ class Country {
     static showAll() {
         return countries.map(q => new Country(q))
     }
+
+    static show(name) {
+        const country = countries.find((country) => country.name.toLowerCase() == name)
+
+        if (country) {
+            return new Country(country)
+        } else {
+            throw 'Country not in database'
+        }
+    }
 }
 
 

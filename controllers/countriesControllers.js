@@ -9,4 +9,19 @@ const index = async (req, res) => {
     }
 }
 
-module.exports = {index }
+const show = async (req, res) => {
+    const name = req.params.name.toLowerCase()
+
+    try {
+        const country = await Country.show(name)
+        res.status(200).send(country)
+    } catch (err) {
+        res.status(404).send({error: err})
+    }
+}
+
+
+
+
+
+module.exports = {index, show}

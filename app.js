@@ -6,7 +6,7 @@ app.use(express.json())
 app.use('/countries', countries)
 
 app.get('/', (req, res) => {
-    res.send('Hello there.')
+    res.send('Hello there!')
 })
 
 module.exports = app
